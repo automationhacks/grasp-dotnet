@@ -19,9 +19,11 @@ if (!app.Environment.IsDevelopment())
     // to read more about HSTS
     app.UseHsts();
 }
+// for unhandled 400 - 599, re-executes request pipeline and redirects to not found page
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);
+// routes http request to https port if available
 app.UseHttpsRedirection();
-
+// enables anti forgery protection for form processing
 app.UseAntiforgery();
 
 app.MapStaticAssets();
