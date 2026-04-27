@@ -2,7 +2,22 @@
 
 ## Setup
 
-- This project was created using visual studio code, using C# dev kit and using the .NET: New project for Blazor web app template
+- This project was created using visual studio code, using C# dev kit and using the **.NET: New project** for Blazor web app template
+- Add Nuget packages and tools (one time setup)
+
+```shell
+dotnet tool install --global Microsoft.dotnet-scaffold
+
+# one time setup to make dotnet tools like 
+# dotnet-ef (for entity framework) and dotnet-scaffold (across the os)
+cat << \EOF >> ~/.zprofile
+# Add .NET Core SDK tools
+export PATH="$PATH:/Users/gauravsingh/.dotnet/tools"
+EOF
+
+# after that run below to make it available in current session
+zsh -l
+```
 
 ## Run
 
