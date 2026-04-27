@@ -1,6 +1,14 @@
 using BlazorWebAppMovies.Components;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("BlazorWebAppMoviesContext") ?? throw new InvalidOperationException("Connection string 'BlazorWebAppMoviesContext' not found.");
+
+builder.Services.AddDbContextFactory<BlazorWebAppMoviesContext>(options => options.UseSqlite(connectionString));
+
+builder.Services.AddQuickGridEntityFrameworkAdapter();
+
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
@@ -18,6 +26,7 @@ if (!app.Environment.IsDevelopment())
     // You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     // to read more about HSTS
     app.UseHsts();
+    app.UseMigrationsEndPoint();
 }
 // for unhandled 400 - 599, re-executes request pipeline and redirects to not found page
 app.UseStatusCodePagesWithReExecute("/not-found", createScopeForStatusCodePages: true);

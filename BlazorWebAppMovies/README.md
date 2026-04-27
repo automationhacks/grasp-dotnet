@@ -1,5 +1,7 @@
 # BlazorWebAppMovies
 
+Read [Build a Blazor movie database](https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-app/?view=aspnetcore-10.0) to understand how to work with Blazor web framework, entity framework (EF) and databases
+
 ## Setup
 
 - This project was created using visual studio code, using C# dev kit and using the **.NET: New project** for Blazor web app template
@@ -47,3 +49,7 @@ Read about this [here](https://learn.microsoft.com/en-us/aspnet/core/blazor/tuto
 > Use [Secret Manager tool](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets?view=aspnetcore-10.0&tabs=windows) for **local development testing** and securing sensitive data. It would store secrets (any sensitive data) in a JSON file in users profile directory and convenient helper methods can be used to access them in app. Also, learn about **authN (authentication) and authZ (authorization) via managed identities** for production apps
 
 - `Program.cs`: code to create the app and configure request processing pipeline of the app
+
+## Development
+
+- We use dotnet scaffold, it is a code generation framework that quickly adds database context from models and UI code that interacts with data model
