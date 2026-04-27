@@ -9,6 +9,11 @@ Read [Build a Blazor movie database](https://learn.microsoft.com/en-us/aspnet/co
 
 ```shell
 dotnet tool install --global Microsoft.dotnet-scaffold
+dotnet tool install --global dotnet-ef
+
+# (Optional) set dotnet version at project level
+dotnet new globaljson --sdk-version 10.0.202 --force
+# these tools are installed in /Users/<your_user_name>/.dotnet/tools
 
 # one time setup to make dotnet tools like 
 # dotnet-ef (for entity framework) and dotnet-scaffold (across the os)
@@ -19,6 +24,11 @@ EOF
 
 # after that run below to make it available in current session
 zsh -l
+```
+
+```shell
+# Optional: If EF Core Design package is not present
+dotnet add package Microsoft.EntityFrameworkCore.Design --version 10.0.7
 ```
 
 ## Run
@@ -52,4 +62,30 @@ Read about this [here](https://learn.microsoft.com/en-us/aspnet/core/blazor/tuto
 
 ## Development
 
-- We use dotnet scaffold, it is a code generation framework that quickly adds database context from models and UI code that interacts with data model
+- We use dotnet scaffold, it is a code generation framework that quickly adds database context from models and UI code that interacts with data model. Follow selections guidance from [here](https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-app/part-2?view=aspnetcore-10.0&pivots=vsc#scaffold-the-model) that helps to wire a Blazor component using SQLite as the local db context and produces a CRUD app with required EF (Entity framework) mappings
+
+```shell
+dotnet scaffold
+```
+
+EF (entity framework) is an ORM (Object relational mapper) that takes a code first approach. EF core tooling takes care of database upgrades, migrations and aims to speed up development.
+
+- Entity classes are created and updated in app
+- The db is created and updated from the apps entity classes
+
+```shell
+# Install dotnet EF
+dotnet tool install --global dotnet-ef
+
+# Update dotnet ef tool
+dotnet tool update --global dotnet-ef
+
+# Run migration
+dotnet tool run dotnet-ef migrations add InitialCreate
+
+dotnet ef database update
+```
+
+`migrations` generates the code to create initial db schema. Here `InitialCreate` is the name of the migration
+
+After the Migrations is created, you can update the db using `update` command. It executes `Up` method in migrations that haven't been applied yet
