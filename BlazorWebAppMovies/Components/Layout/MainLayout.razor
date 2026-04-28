@@ -1,7 +1,11 @@
-﻿@inherits LayoutComponentBase
+﻿<!-- Base class for components that represent a layout -->
+@inherits LayoutComponentBase
 
 <div class="page">
     <div class="sidebar">
+        <!-- You only need to add a component name to render the component 
+        Components can be nested.
+        -->
         <NavMenu />
     </div>
 
@@ -16,6 +20,7 @@
     </main>
 </div>
 
+<!-- Notice about any unhandled error is displayed -->
 <div id="blazor-error-ui" data-nosnippet>
     An unhandled error has occurred.
     <a href="." class="reload">Reload</a>
