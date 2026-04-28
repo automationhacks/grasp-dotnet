@@ -90,6 +90,10 @@ dotnet ef database update
 
 After the Migrations is created, you can update the db using `update` command. It executes `Up` method in migrations that haven't been applied yet
 
+## Working with Database (DB)
+
+- Tutorial can be found [here](https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-app/part-4?view=aspnetcore-10.0&pivots=vsc)
+
 ## Resources
 
 - You should understand how to setup AuthN and AuthZ for Blazor apps. Read [this](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-10.0) for an overview and how to secure your app using [OIDC (OpenID connect)](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-oidc?view=aspnetcore-10.0) or [Microsoft Entra ID](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-entra?view=aspnetcore-10.0)
