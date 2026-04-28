@@ -60,7 +60,7 @@ Read about this [here](https://learn.microsoft.com/en-us/aspnet/core/blazor/tuto
 
 - `Program.cs`: code to create the app and configure request processing pipeline of the app
 
-## Development
+## Dotnet scaffold and Entity framework migrations
 
 - We use dotnet scaffold, it is a code generation framework that quickly adds database context from models and UI code that interacts with data model. Follow selections guidance from [here](https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-app/part-2?view=aspnetcore-10.0&pivots=vsc#scaffold-the-model) that helps to wire a Blazor component using SQLite as the local db context and produces a CRUD app with required EF (Entity framework) mappings
 
@@ -89,3 +89,8 @@ dotnet ef database update
 `migrations` generates the code to create initial db schema. Here `InitialCreate` is the name of the migration
 
 After the Migrations is created, you can update the db using `update` command. It executes `Up` method in migrations that haven't been applied yet
+
+## Resources
+
+- You should understand how to setup AuthN and AuthZ for Blazor apps. Read [this](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-10.0) for an overview and how to secure your app using [OIDC (OpenID connect)](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-oidc?view=aspnetcore-10.0) or [Microsoft Entra ID](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-entra?view=aspnetcore-10.0)
+- For Microsoft Azure services, you can read how to use [managed identities for Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) and for [App service and Azure functions](https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity)
