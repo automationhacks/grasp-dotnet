@@ -17,6 +17,15 @@ builder.Services.AddRazorComponents()
 
 var app = builder.Build();
 
+// Here, using acts as a context manager and disposes of scope after the
+// seeding operation is completed. The database context instance is obtained
+// via Dependency injection (DI)
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    SeedData.Initialize(services);
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
