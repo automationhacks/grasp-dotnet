@@ -106,3 +106,6 @@ dotnet ef database update
 
 - You should understand how to setup AuthN and AuthZ for Blazor apps. Read [this](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-10.0) for an overview and how to secure your app using [OIDC (OpenID connect)](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-oidc?view=aspnetcore-10.0) or [Microsoft Entra ID](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-entra?view=aspnetcore-10.0)
 - For Microsoft Azure services, you can read how to use [managed identities for Azure SQL](https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) and for [App service and Azure functions](https://learn.microsoft.com/en-us/azure/app-service/overview-managed-identity)
+- Read [ASP.NET Core Blazor authentication and authorization](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-10.0&tabs=visual-studio#securely-maintain-sensitive-data-and-credentials)
+- Read [Enforce HTTPS in ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/security/enforcing-ssl?view=aspnetcore-10.0&tabs=visual-studio%2Clinux-sles)
+- Read Dependency injection in ASP.NET Core
