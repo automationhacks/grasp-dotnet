@@ -92,7 +92,15 @@ After the Migrations is created, you can update the db using `update` command. I
 
 ## Working with Database (DB)
 
-- Tutorial can be found [here](https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-app/part-4?view=aspnetcore-10.0&pivots=vsc)
+- Tutorial can be found [Build a Blazor movie database app (Part 4 - Work with a database)](https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-app/part-4?view=aspnetcore-10.0&pivots=vsc)
+- We can add data annotations to the model class to add validations on the database schema. In general, we should keep the model and the database schema in sync
+
+```shell
+# Create migration after making a change in the model
+dotnet ef migrations add NewMovieDataAnnotations
+# Update the database with the migrations
+dotnet ef database update
+```
 
 ## Resources
 
