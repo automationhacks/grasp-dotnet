@@ -16,8 +16,11 @@
     It then patches the response content on the page, which avoid a full page reload
     and preseves more of the page state. This leads to the page loading faster without
     losing the user's scroll position.
+
+    data-permanent ensures the attribute value on search textbox is not lost
+    after the data is fetched.
     -->
-    <form action="/movies" data-enhance>
+    <form action="/movies" data-enhance data-permanent>
         <input type="search" name="titleFilter" />
         <input type="submit" value="Search" />
     </form>
