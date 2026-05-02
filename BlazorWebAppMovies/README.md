@@ -102,6 +102,11 @@ dotnet ef migrations add NewMovieDataAnnotations
 dotnet ef database update
 ```
 
+- Read [Update the database](https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-app/part-7?view=aspnetcore-10.0&pivots=vsc#update-the-database) to understand your 3 options when making a change to an existing database
+  - **✅ Approach 1:** Modify database schema to match model using database tooling or script. This preserves existing data in db
+  - **❌ Approach 2:** Use EFCore to drop and recreate the db, EFCore will automatically reseed data as per migrations. This results in **data loss!!**. DON'T USE ON A PRODUCTION DB
+  - **✅ Approach 3:** Change model in app and use EFCore to update the database schema after. This is a good approach as it preserves the db's data.
+
 ## Resources
 
 - You should understand how to setup AuthN and AuthZ for Blazor apps. Read [this](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-10.0) for an overview and how to secure your app using [OIDC (OpenID connect)](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-oidc?view=aspnetcore-10.0) or [Microsoft Entra ID](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-entra?view=aspnetcore-10.0)
