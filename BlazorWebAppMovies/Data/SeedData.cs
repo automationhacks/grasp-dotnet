@@ -25,6 +25,7 @@ public class SeedData
                 ReleaseDate = new DateOnly(1979, 4, 12),
                 Genre = "Sci-fi (Cyberpunk)",
                 Price = 2.51M,
+                Rating = "R",
             },
             new Movie
             {
@@ -32,6 +33,7 @@ public class SeedData
                 ReleaseDate = new DateOnly(1981, 12, 24),
                 Genre = "Sci-fi (Cyberpunk)",
                 Price = 2.78M,
+                Rating = "R",
             },
             new Movie
             {
@@ -39,6 +41,7 @@ public class SeedData
                 ReleaseDate = new DateOnly(1985, 7, 10),
                 Genre = "Sci-fi (Cyberpunk)",
                 Price = 3.55M,
+                Rating = "PG-13"
             },
             new Movie
             {
@@ -46,6 +49,7 @@ public class SeedData
                 ReleaseDate = new DateOnly(2015, 5, 15),
                 Genre = "Sci-fi (Cyberpunk)",
                 Price = 8.43M,
+                Rating = "R"
             },
             new Movie
             {
@@ -53,6 +57,7 @@ public class SeedData
                 ReleaseDate = new DateOnly(2024, 5, 24),
                 Genre = "Sci-fi (Cyberpunk)",
                 Price = 13.49M,
+                Rating = "R"
             });
 
         context.SaveChanges();
