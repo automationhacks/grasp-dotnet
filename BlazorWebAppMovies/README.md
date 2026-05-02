@@ -107,6 +107,16 @@ dotnet ef database update
   - **❌ Approach 2:** Use EFCore to drop and recreate the db, EFCore will automatically reseed data as per migrations. This results in **data loss!!**. DON'T USE ON A PRODUCTION DB
   - **✅ Approach 3:** Change model in app and use EFCore to update the database schema after. This is a good approach as it preserves the db's data.
 
+## Interactivity
+
+- Read [Add Interactivity](https://learn.microsoft.com/en-us/aspnet/core/blazor/tutorials/movie-database-app/part-8?view=aspnetcore-10.0&pivots=vsc). It means a component has the capacity to process UI events from C# code.
+- There are 2 types here:
+  - Events are processed on server by ASP.NET core runtime. This is also called **Interative Server side rendering (SSR)** or **Interactive Server**
+    - You don't need to create API endpoints to access server resources
+    - UI interactions are handled by the server over a **real time SignalR connection** with the browser
+    - Page content for interactive pages is pre-rendered, here content on the server is initially generated and sent to the client without enabling **event handlers** for rendered controls, thus the HTML UI is delivered as soon as possible in initial request, making the app feel more responsive.
+  - Events are processed on the client browser by WebAssembly based Blazor runtime. This is also called **Client side rendering (CSR)**
+
 ## Resources
 
 - You should understand how to setup AuthN and AuthZ for Blazor apps. Read [this](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/?view=aspnetcore-10.0) for an overview and how to secure your app using [OIDC (OpenID connect)](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-oidc?view=aspnetcore-10.0) or [Microsoft Entra ID](https://learn.microsoft.com/en-us/aspnet/core/blazor/security/blazor-web-app-with-entra?view=aspnetcore-10.0)

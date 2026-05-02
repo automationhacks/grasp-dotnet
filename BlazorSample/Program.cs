@@ -3,6 +3,7 @@ using BlazorSample.Components;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+// this adds Interactivity via server side rendering (SSR) which uses WASM (Web assembly)
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
