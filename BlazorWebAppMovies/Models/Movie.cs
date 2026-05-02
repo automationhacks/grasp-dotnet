@@ -26,4 +26,13 @@ public class Movie
     // Database column is a decimal of 18 digits and 2 decimal places
     [Column(TypeName = "decimal(18, 2)")]
     public decimal Price { get; set; }
+
+    // @ means C# treats it as a verbatim string literal and backslashes are
+    // treated as literal characters
+    // ^ beginning of string
+    // $ end of string
+    // () grouping to look for one of the options inside the block
+    [Required]
+    [RegularExpression(@"^(G|PG|PG-13|R|NC-17)$")]
+    public string? Rating { get; set; }
 }
