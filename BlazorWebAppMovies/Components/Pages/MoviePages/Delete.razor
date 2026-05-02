@@ -34,6 +34,23 @@
             <dt class="col-sm-2">Price</dt>
             <dd class="col-sm-10">@movie.Price</dd>
         </dl>
+        <!-- 
+            dl (description list) used to group terms and their descriptions
+            class = "row" is a bootstrap grid class, tells browser that items in this list
+            should behave like a row in a grid system and label and value can sit side by side
+
+            dt (description term) acts like a label with text Rating
+            class = "col-sm-2" tells bootstrap to take 2 out of 12 columns of width on small/large screens
+            ensures labels are consistently narrow
+
+            dd (description details) is where actual data goes
+            class = "col-sm-12" tells bootstrap to take 10 out 12 columns of width
+            @movie.Rating reaches out to movie object and pulls value stored in rating column
+        -->
+        <dl class="row">
+            <dt class="col-sm-2">Rating</dt>
+            <dd class="col-sm-10">@movie.Rating</dd>
+        </dl>
         <EditForm method="post" Model="movie" OnValidSubmit="DeleteMovie" FormName="delete" Enhance>
             <button type="submit" class="btn btn-danger" disabled="@(movie is null)">Delete</button> |
             <a href="/movies">Back to List</a>
