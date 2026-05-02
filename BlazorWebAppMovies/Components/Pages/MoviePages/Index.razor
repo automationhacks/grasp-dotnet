@@ -1,4 +1,6 @@
 @page "/movies"
+<!-- add interactivity at a page level -->
+@rendermode InteractiveServer
 @using Microsoft.AspNetCore.Components.QuickGrid
 @using Microsoft.EntityFrameworkCore
 @using BlazorWebAppMovies.Models
@@ -30,7 +32,7 @@
     <a href="movies/create">Create New</a>
 </p>
 
-<QuickGrid Class="table" Items="FilteredMovies">
+<QuickGrid Class="table" Items="FilteredMovies" Pagination="pagination">
     <PropertyColumn Property="movie => movie.Title" />
     <PropertyColumn Property="movie => movie.ReleaseDate" Title="Release Date" />
     <PropertyColumn Property="movie => movie.Genre" />
@@ -43,6 +45,13 @@
         <a href="@($"movies/delete?id={movie.Id}")">Delete</a>
     </TemplateColumn>
 </QuickGrid>
+<!-- 
+The component is interactive. The page does not reload for paging to occur.
+The paging is performed live over a SignalR connection between Browser and Server,
+paging operation is performed on the server with rendered result sent back to the client
+for the browser to display.
+-->
+<Paginator State="pagination" />
 
 @code {
     private BlazorWebAppMoviesContext context = default!;
@@ -62,6 +71,8 @@
         // and no movies are displayed
         m => m.Title!.Contains(TitleFilter ?? string.Empty)
             );
+
+    private PaginationState pagination = new PaginationState { ItemsPerPage = 5 };
 
     protected override void OnInitialized()
     {
