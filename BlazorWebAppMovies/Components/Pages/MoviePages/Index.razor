@@ -13,19 +13,7 @@
 <h1>Index</h1>
 
 <div>
-    <!-- data-enhance applies enhanced navigation to Blazor component
-    Blazor intercepts the GET request and performs a fetch request instead
-    It then patches the response content on the page, which avoid a full page reload
-    and preseves more of the page state. This leads to the page loading faster without
-    losing the user's scroll position.
-
-    data-permanent ensures the attribute value on search textbox is not lost
-    after the data is fetched.
-    -->
-    <form action="/movies" data-enhance data-permanent>
-        <input type="search" name="titleFilter" />
-        <input type="submit" value="Search" />
-    </form>
+    <input type="search" @bind="titleFilter" @bind:event="oninput" />
 </div>
 
 <p>
@@ -56,21 +44,9 @@ for the browser to display.
 @code {
     private BlazorWebAppMoviesContext context = default!;
 
-    // This value is parsed from query string
-    // titleFilter=road+warrior == TitleFilter = "road warrior"
-    // Query string field names are not case sensitive
-    [SupplyParameterFromQuery]
-    private string? TitleFilter { get; set; }
+    private string titleFilter = string.Empty;
 
-    // The Where clause here is a LINQ expression making use of Lambda expression
-    // the execution is delayed until the realised value is iterated upon
-    // The Where method is run on the database
-    private IQueryable<Movie> FilteredMovies => context.Movie.Where(
-        // If TitleFilter is null, checked by ?? operator
-        // an empty string is used for the Contains clause
-        // and no movies are displayed
-        m => m.Title!.Contains(TitleFilter ?? string.Empty)
-            );
+    private IQueryable<Movie> FilteredMovies => context.Movie.Where(m => m.Title!.Contains(titleFilter));
 
     private PaginationState pagination = new PaginationState { ItemsPerPage = 5 };
 
